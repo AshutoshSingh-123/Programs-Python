@@ -1,0 +1,62 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+entity alu is
+ Port ( inp_a : in signed(3 downto 0);
+ inp_b : in signed(3 downto 0);
+ sel : in STD_LOGIC_VECTOR (2 downto 0);
+ out_alu : out signed(3 downto 0));
+end alu;
+architecture Behavioral of alu is
+begin
+process(inp_a, inp_b, sel)
+15
+begin
+16
+case sel is
+17
+ when "000" =>
+18
+ out_alu<= inp_a + inp_b; --addition
+19
+ when "001" =>
+20
+ out_alu<= inp_a - inp_b; --subtraction
+21
+ when "010" =>
+22
+ out_alu<= inp_a - 1; --sub 1
+23
+ when "011" =>
+24
+ out_alu<= inp_a + 1; --add 1
+25
+ when "100" =>
+26
+ out_alu<= inp_a and inp_b; --AND gate
+27
+ when "101" =>
+28
+ out_alu<= inp_a or inp_b; --OR gate
+29
+ when "110" =>
+30
+ out_alu<= not inp_a ; --NOT gate
+31
+ when "111" =>
+32
+ out_alu<= inp_a xor inp_b; --XOR gate
+33
+ when others =>
+34
+ NULL;
+35
+end case;
+36
+  
+37
+end process;
+38
+ 
+39
+end Behavioral;

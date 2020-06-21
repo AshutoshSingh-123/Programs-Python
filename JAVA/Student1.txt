@@ -1,0 +1,12 @@
+class Student1{
+String name;
+int rn;
+Student1(String name, int rn){
+this.name=name;
+this.rn=rn;
+}
+public static void main(String[]args){
+Student1 s1=new Student("a",1);
+Student1 s2=new Student("aa",2);
+}
+}
